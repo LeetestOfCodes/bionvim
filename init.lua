@@ -2,9 +2,12 @@
 local bionicreading = require 'bionicreading.bionicreading'
 
 vim.cmd [[
-command! BionicReadingEnable lua require'bionicreading'.enable()
-command! BionicReadingDisable lua require'bionicreading'.disable()
-command! BionicReadingToggle lua require'bionicreading'.toggle()
+  augroup BionicReadingCommands
+    autocmd!
+    autocmd VimEnter * command! BionicReadingEnable lua require'bionicreading'.enable()
+    autocmd VimEnter * command! BionicReadingDisable lua require'bionicreading'.disable()
+    autocmd VimEnter * command! BionicReadingToggle lua require'bionicreading'.toggle()
+  augroup END
 ]]
 
 return {
